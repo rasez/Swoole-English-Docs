@@ -1,0 +1,37 @@
+<html class="translated-ltr"><head>
+    <title>TCP/UDP pressure measurement tool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+    <body>
+        <div class="wiki_content">
+            <article>
+                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TCP/UDP pressure measurement tool</font></font></h1>
+                
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swoole provides a set of TCP/UDP stress testing tools, the code is in examples/bench/run.php, based on swoole_client. </font><font style="vertical-align: inherit;">Unlike tools such as ab and http_bench, bench.php is based on multi-process implementation for concurrent testing. </font><font style="vertical-align: inherit;">Instructions:</font></font></p>
+                <pre class="brush: php;">php bench.php -c 100 -n 10000 -s tcp://127.0.0.1:9501 -f long_tcp
+    </pre>
+                <ul>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-c parameter, the number of concurrent, will start the corresponding number of processes for testing</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-n parameter, the total number of requests, -n 10000, -c 100, the average number of each child process is 100</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-s parameter, Server IP: PORT</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-f parameter, the name of the test unit, currently provides long_tcp/short_tcp/udp3, you can implement the unit test function by yourself.</font></font></li>
+                </ul>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After the test is completed, the printed result is:</font></font></p>
+                <pre class="brush: php;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Concurrency: 100 //number of concurrent</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Request num: 10000 // total number of requests</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Lost num: 0 //number of failures</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Success num: 10000 //number of successes</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Total time: 0.157 // total time</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Req per second: 63558 //qps, the number of requests processed per second</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    One req use(ms): 0.015 //The average length of a single request, this result is currently inaccurate, please do not use as a reference</font></font><font></font>
+    </pre>
+            </article>
+            
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+    
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

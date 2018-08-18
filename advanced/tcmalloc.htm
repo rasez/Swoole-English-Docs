@@ -1,0 +1,44 @@
+<html class="translated-ltr"><head>
+    <title>Use scmalloc to improve swoole memory allocation performance</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+    <body>
+        <div class="wiki_content">
+            <article>
+            <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use scmalloc to improve swoole memory allocation performance</font></font></h1>
+            
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">About tcmalloc</font></font></h2>
+    
+            <p><code>TCMalloc (google-perftools)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">It is a multi-threaded application for optimizing C/C++ writing, faster than glibc's malloc. </font><font style="vertical-align: inherit;">This module can be used to make the Swoole server program more stable in high concurrent memory usage.</font></font></p>
+            <p><code>TCMalloc</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">It is also very simple to use, just connect to the application at compile time, it will automatically replace glibc's malloc function.</font></font></p>
+            
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Install libunwind</font></font></h2>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Download address: </font></font><a href="http://ftp.twaren.net/Unix/NonGNU//libunwind/libunwind-0.99-beta.tar.gz"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://ftp.twaren.net/Unix/NonGNU//libunwind/libunwind-0.99-beta.tar.gz</font></font></a></p>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compile and install</font></font></p>
+            <pre>./configure  CFLAGS=-U_FORTRIFY_SOURCE<font></font>
+    sudo make -j install</pre>
+    
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Install tcmalloc</font></font></h2>
+            <ul>
+            <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GITHUB homepage: </font></font><a href="https://github.com/gperftools/gperftools"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/gperftools/gperftools</font></font></a></li>
+            <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Download address </font></font><a href="https://codeload.github.com/gperftools/gperftools/tar.gz/gperftools-2.4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://codeload.github.com/gperftools/gperftools/tar.gz/gperftools-2.4</font></font></a></li>
+            </ul>
+            <pre>./configure --enable-frame-pointers<font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    sudo make -j install</font></font><font></font>
+    sudo ldconfig<font></font>
+    </pre>
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Turn on tcmalloc</font></font></h2>
+            <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The 1.7.x version manually modifies the Makefile.</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+            Enter the </font></font><code>swoole-src</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">directory modification </font></font><code>Makefile</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">file, </font></font><code>SWOOLE_SHARED_LIBADD</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">append it </font><font style="vertical-align: inherit;">at the </font><font style="vertical-align: inherit;">end </font></font><code>-ltcmalloc</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">, and then recompile and install the swoole to use the </font></font><code>tcmalloc</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">optimized memory allocation performance.</font></font></p>
+            <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.8.0 or higher</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+            compiler parameter increase</font></font><code>--enable-tcmalloc</code></p>
+            </article>
+            
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+    
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

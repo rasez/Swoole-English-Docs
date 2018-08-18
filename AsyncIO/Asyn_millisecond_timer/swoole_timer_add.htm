@@ -1,0 +1,37 @@
+<html class="translated-ltr"><head>
+        <title>swoole_timer_add</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+        <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+        <link rel="stylesheet" href="../../public/css/default.css" type="text/css">
+        <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css">
+        <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css">
+        <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+        <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.defaults['gutter'] = false;
+            SyntaxHighlighter.defaults['toolbar'] = false;
+            SyntaxHighlighter.all();
+        </script>
+        <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+        <body>
+            <div class="wiki_content">
+                <article>
+                    <h1>swoole_timer_add</h1>
+                    
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Add a timer for the fpm/apache/cli environment.</font></font></p>
+                    <div><div id="highlighter_911384" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">swoole_timer_add(</code><code class="php variable">$interval</code><code class="php plain">, </code><code class="php variable">$callback</code><code class="php plain">);</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php plain">swoole_timer_add(3000, </code><code class="php keyword">function</code><code class="php plain">(</code><code class="php variable">$interval</code><code class="php plain">) {</code></div><div class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"timer[$interval] :"</code><code class="php plain">.</code><code class="php functions">date</code><code class="php plain">(</code><code class="php string">"H:i:s"</code><code class="php plain">).</code><code class="php string">" call\n"</code><code class="php plain">;</code></div><div class="line number5 index4 alt2"><code class="php plain">});</code></div></div></td></tr></tbody></table></div></div>
+                    <ul>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$interval is the timer interval, the unit is milliseconds, there can be 2 timers with the same time interval.</font></font></li>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$callback is the event callback function of the timer</font></font></li>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Need swoole-1.6.12+</font></font></li>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Not available in swoole_server</font></font></li>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remove this timer from version 1.8.0 or higher, please use swoole_timer_tick</font></font></li>
+                        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Timers must be used in full-asynchronous mode. Do not use in synchronous blocking code.</font></font></li>
+                    </ul>
+                </article>
+                
+            </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+        
+        
+        <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

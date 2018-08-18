@@ -1,0 +1,51 @@
+<html class="translated-ltr"><head>
+    <title>From_id and fd in the callback function</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css">
+      <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css">
+      <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+      <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+      <script type="text/javascript">
+          SyntaxHighlighter.defaults['gutter'] = false;
+          SyntaxHighlighter.defaults['toolbar'] = false;
+          SyntaxHighlighter.all();
+      </script>
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+  
+  <body>
+      <div class="wiki_content">
+          <article>
+              <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">From_id and fd in the callback function</font></font></h1>
+              
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">It is often seen in callback functions.</font></font></p>
+              <ul>
+                  <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">From_id is from which reactor thread</font></font></li>
+                  <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fd is the file descriptor of the tcp connection, which is the unique identifier of the client in swoole_server</font></font></li>
+                  <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fd is multiplexed, fd will be reused by the newly entered connection when the connection is closed.</font></font></li>
+                  <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The TCP connection fd being maintained will not be reused.</font></font></li>
+              </ul>
+  
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The call </font></font><code>swoole_server-&gt;send</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/ </font></font><code>swoole_server-&gt;close</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">function needs to pass in the $fd parameter to be processed correctly. </font><font style="vertical-align: inherit;">If you need to send a broadcast in your business, you need to save the value of fd with apc/redis/memcache/swoole_table.</font></font></p>
+  
+              <blockquote>
+                  <ul>
+                      <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.6.0 or later no longer requires the from_id parameter, swoole itself provides a ConnectionList to query all current fd and corresponding from_id</font></font></li>
+                      <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In version 1.7.10 and above, fd is no longer a file descriptor. </font><font style="vertical-align: inherit;">Fd is an auto-incrementing number ranging from 1 to 16 million</font></font></li>
+                      <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After fd exceeds 16 million, it will automatically start from 1</font></font></li>
+                  </ul>
+              </blockquote>
+  
+              <div><div id="highlighter_157220" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">function</code> <code class="php plain">my_onReceive(</code><code class="php variable">$serv</code><code class="php plain">, </code><code class="php variable">$fd</code><code class="php plain">, </code><code class="php variable">$from_id</code><code class="php plain">, </code><code class="php variable">$data</code><code class="php plain">)&nbsp; {</code></div><div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">//向Connection发送数据</code></div><div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$serv</code><code class="php plain">-&gt;send(</code><code class="php variable">$fd</code><code class="php plain">, </code><code class="php string">'Swoole: '</code><code class="php plain">.</code><code class="php variable">$data</code><code class="php plain">); </code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">//关闭Connection</code></div><div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$serv</code><code class="php plain">-&gt;close(</code><code class="php variable">$fd</code><code class="php plain">); </code></div><div class="line number7 index6 alt2"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+              <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Why does $fd use shaping?</font></font></h2>
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$fd uses shaping instead of using objects. The main reason is that swoole is a multi-process model. You may want to access a client connection at any time in the Worker/Task process. If you use an object, you need to perform Serialize/Unserialize. </font><font style="vertical-align: inherit;">Added additional performance overhead. </font><font style="vertical-align: inherit;">If $fd is an integer then the direct storage transfer can be used.</font></font></p>
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In the PHP layer, client connections can also be encapsulated into objects. </font><font style="vertical-align: inherit;">The object-oriented benefit is better readability, and the operations of the join can be encapsulated into methods. </font><font style="vertical-align: inherit;">Such as</font></font></p>
+              <div><div id="highlighter_420514" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php variable">$connection</code><code class="php plain">-&gt;send(</code><code class="php variable">$data</code><code class="php plain">);</code></div><div class="line number2 index1 alt1"><code class="php variable">$connection</code><code class="php plain">-&gt;close();</code></div></div></td></tr></tbody></table></div></div>
+          </article>
+          
+      </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+  
+  
+  <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

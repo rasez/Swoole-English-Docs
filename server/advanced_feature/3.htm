@@ -1,0 +1,46 @@
+<html class="translated-ltr"><head>
+    <title>Use of Buffer and EOF_Check</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css">
+      <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css">
+      <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+      <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+      <script type="text/javascript">
+          SyntaxHighlighter.defaults['gutter'] = false;
+          SyntaxHighlighter.defaults['toolbar'] = false;
+          SyntaxHighlighter.all();
+      </script>
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+  
+  <body style="text-justify-trim:punctuation">
+      <div class="wiki_content">
+          <article>
+              <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use of Buffer and EOF_Check</font></font></h1>
+              
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When communicating on the external network, some clients send data at a slower rate, and only a small amount of data can be sent at a time. </font><font style="vertical-align: inherit;">The data that is onReceive is not a complete package. </font><font style="vertical-align: inherit;">Some clients also send data byte by byte, if the callback onReceive will slow down the entire system.</font></font></p>
+  
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swoole provides the functions of buffer and eof_check. It detects that if it is not a complete request, it will wait for new data to arrive, and then call up onReceive after composing the completed request.</font></font></p>
+  
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                  Added this in swoole_server_set, open_eof_check and package_eof to enable this feature. </font><font style="vertical-align: inherit;">Open_eof_check=1 means to enable buffer checking, and package_eof to set the packet end. </font></font><a href="../../rumen/xintexing/04.htm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">View detailed instructions</font></font></a>
+              </p>
+  
+              <blockquote>
+                  <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      The buffer function will put all the received data into the memory, which will take up more memory </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">. Set the maximum cache size of each connection by setting package_max_length. The connection beyond this size will be closed </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      before version 1.6.12, onReceive Still segmented reads. </font><font style="vertical-align: inherit;">After 1.6.12 onReceive will return all data at once
+                  </font></font></p>
+              </blockquote>
+  
+              <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Example:</font></font></p>
+  
+              <div><div id="highlighter_300275" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">swoole_server_set(</code><code class="php variable">$serv</code><code class="php plain">, </code><code class="php keyword">array</code><code class="php plain">(</code></div><div class="line number2 index1 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'timeout'</code> <code class="php plain">=&gt; 2.5,&nbsp; </code><code class="php comments">//select and epoll_wait timeout. </code></div><div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'poll_thread_num'</code> <code class="php plain">=&gt; 2, </code><code class="php comments">//reactor thread num</code></div><div class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'writer_num'</code> <code class="php plain">=&gt; 2,&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="php comments">//writer thread num</code></div><div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'worker_num'</code> <code class="php plain">=&gt; 4,&nbsp;&nbsp;&nbsp; </code><code class="php comments">//worker process num</code></div><div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'backlog'</code> <code class="php plain">=&gt; 128,&nbsp;&nbsp; </code><code class="php comments">//listen backlog</code></div><div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'max_request'</code> <code class="php plain">=&gt; 50,</code></div><div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'dispatch_mode'</code><code class="php plain">=&gt;1, </code></div><div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'package_eof'</code> <code class="php plain">=&gt; </code><code class="php string">"\r\n\r\n"</code><code class="php plain">,&nbsp; </code><code class="php comments">//http协议就是以\r\n\r\n作为结束符的，这里也可以使用二进制内容</code></div><div class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'open_eof_check'</code> <code class="php plain">=&gt; 1,</code></div><div class="line number11 index10 alt2"><code class="php plain">));</code></div></div></td></tr></tbody></table></div></div>
+          </article>
+          
+      </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+  
+  
+  <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

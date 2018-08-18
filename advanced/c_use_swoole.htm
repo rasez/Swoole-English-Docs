@@ -1,0 +1,35 @@
+<html class="translated-ltr"><head>
+    <title>How C/C++ developers use Swoole</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css">
+    <script type="text/javascript" src="../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+    <body>
+        <div class="wiki_content">
+            <article>
+                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">How C/C++ developers use Swoole</font></font></h1>
+                
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swoole uses cmake to compile the configuration. The sample program is in examples/server.c. </font><font style="vertical-align: inherit;">You can develop your code on this basis. </font><font style="vertical-align: inherit;">If you need to modify the compilation details, please modify CMakeLists.txt directly.</font></font></p>
+                <h2>Build &amp; Install</h2>
+                <div><div id="highlighter_975564" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">cmake .</code></div><div class="line number2 index1 alt1"><code class="php plain">make</code></div><div class="line number3 index2 alt2"><code class="php plain">make install</code></div></div></td></tr></tbody></table></div></div>
+                <h2>Example</h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample code: examples/server.c In the C/C++ code, you only need to introduce the swoole header.</font></font></p>
+                <div><div id="highlighter_256116" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">#</code><code class="php keyword">include</code> <code class="php plain">&lt;swoole/Server.h&gt;</code></div><div class="line number2 index1 alt1"><code class="php plain">#</code><code class="php keyword">include</code> <code class="php plain">&lt;swoole/Client.h&gt;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="php plain">int main() </code></div><div class="line number5 index4 alt2"><code class="php plain">{</code></div><div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">swServer serv;</code></div><div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">swServer_create(&amp;serv);</code></div><div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">serv.onStart = my_onStart;&nbsp;&nbsp;&nbsp; </code></div><div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">...</code></div><div class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">swServer_start(&amp;serv);</code></div><div class="line number11 index10 alt2"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compile and run</font></font></p>
+                <div><div id="highlighter_528824" class="syntaxhighlighter nogutter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">gcc -o server server.c -lswoole</code></div><div class="line number2 index1 alt1"><code class="php plain">./server</code></div></div></td></tr></tbody></table></div></div>
+            </article>
+            
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+    
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

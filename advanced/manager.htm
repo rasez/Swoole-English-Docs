@@ -1,0 +1,28 @@
+<html class="translated-ltr"><head>
+    <title>Manager process</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+    <body>
+        <div class="wiki_content">
+            <article>
+                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Manager process</font></font></h1>
+                
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The worker/task process in swoole is managed by the Manager process Fork.</font></font></p>
+                <ul>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When the child process finishes running, the manager process is responsible for reclaiming this child process to avoid becoming a zombie process. </font><font style="vertical-align: inherit;">And create a new child process</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When the server is shut down, the manager process will send a signal to all child processes to notify the child process to close the service.</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The server reload is, the manager process will close/restart the child process one by one.</font></font></li>
+                </ul>
+                <blockquote>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Why is it not a Master process? The main reason is that the Master process is multi-threaded and cannot perform fork operations securely.</font></font></p>
+                </blockquote>
+            </article>
+            
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+    
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

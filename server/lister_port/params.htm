@@ -1,0 +1,48 @@
+<html class="translated-ltr"><head>
+	<title>Optional parameter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+	<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+	<link rel="stylesheet" href="../../public/css/default.css" type="text/css">
+	<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css">
+	<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css">
+	<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.defaults['gutter'] = false;
+		SyntaxHighlighter.defaults['toolbar'] = false;
+		SyntaxHighlighter.all();
+	</script>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+<body>
+	<div class="wiki_content">
+		<article>
+			<h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Optional parameter</font></font></h1>
+			<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+				The listening port calling </font></font><code>set</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">method can only set some specific parameters, and cannot modify the global Server settings.
+			</font></font></p>
+			<ul>
+				<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The listening port does not set any parameters, it will inherit the relevant configuration of the primary server.</font></font></li>
+				<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Http/WebSocket server, if the protocol parameters are not set, the listening port will still be set to Http or WebSocket protocol, and the </font></font><code>onReceive</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">callback </font><font style="vertical-align: inherit;">set for the port will not be executed.</font></font></li>
+			</ul>
+			<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">List of available parameters</font></font></h2>
+			<ul>
+				<li>socket参数，如backlog、TCP_KEEPALIVE、open_tcp_nodelay、tcp_defer_accept等</li>
+				<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Protocol related, such as open_length_check, open_eof_check, package_length_type, etc.</font></font></li>
+				<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SSL certificate related, such as ssl_cert_file, ssl_key_file, etc.</font></font></li>
+			</ul>
+			<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">List of parameters that are not available</font></font></h2>
+			<ul>
+				<li>worker_num、task_worker_num、reactor_num</li>
+				<li>dispatch_mode、task_ipc_num</li>
+				<li>heartbeart_check</li>
+				<li>log_file</li>
+				<li>user/group/chroot</li>
+				<li>open_cpu_affinity</li>
+				<li>max_request/task_max_request</li>
+			</ul>
+		</article>
+	</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>swoole_timer_after</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+        <div id="google_translate_element"></div><script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_timer_after</h1>
+            
+            <p>��ָ����ʱ���ִ�к�������Ҫswoole-1.7.7���ϰ汾��</p>
+            <pre class="brush: php;">swoole_timer_after(int $after_time_ms, mixed $callback_function);
+</pre>
+            <p>swoole_timer_after������һ��һ���Զ�ʱ����ִ����ɺ�ͻ����١��˺�����PHP��׼���ṩ��sleep������ͬ��after�Ƿ������ġ���sleep���ú�ᵼ�µ�ǰ�Ľ��̽������������޷������µ�����</p>
+            <ul>
+                <li>$after_time_ms ָ��ʱ�䣬��λΪ����</li>
+                <li>$callback_function
+                    ʱ�䵽�ں���ִ�еĺ����������ǿ��Ե��õġ�callback�����������κβ���</li>
+            </ul>
+            <blockquote>
+                <p>$after_time_ms ��󲻵ó��� 86400000</p>
+            </blockquote>
+            <h2>ʹ��ʾ��</h2>
+            <pre class="brush: php;">swoole_timer_after(1000, function(){
+    echo "timeout\n";
+});
+</pre>
+        </article>
+        
+    </div>
+</body>
+</html>

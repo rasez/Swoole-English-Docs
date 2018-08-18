@@ -1,0 +1,78 @@
+<html class="translated-ltr"><head>
+    <title>MySQL的连接池、异步、断线重连</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+    <body>
+        <div class="wiki_content">
+            <article>
+                <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL connection pool, asynchronous, disconnected reconnection</font></font></h1>
+                
+                <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL long connection</font></font></h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL short connection needs to establish a TCP connection with the MySQL server every time the request operation database, which requires time overhead. </font><font style="vertical-align: inherit;">The TCP connection requires 3 network communications. </font><font style="vertical-align: inherit;">This adds a certain amount of delay and extra IO consumption. </font><font style="vertical-align: inherit;">The MySQL connection will be closed after the request ends, and 3/4 network communication will occur.</font></font></p>
+                <blockquote>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The close operation does not increase the response delay because the application is automatically communicated by the operating system after close, and the application is not aware of it.</font></font></p>
+                </blockquote>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Long connections avoid the overhead of creating connections per request, saving time and IO consumption. </font><font style="vertical-align: inherit;">Improve the performance of PHP programs.</font></font></p>
+                <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Broken line reconnection</font></font></h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In the cli environment, the PHP program needs to run for a long time, and the TCP connection between the client and the MySQL server is unstable.</font></font></p>
+                <ul>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL-Server will automatically disconnect when it is available for a certain period of time</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP program does not have MySQL query for a long time when it encounters idle period, MySQL-Server will also cut connection to recycle resources.</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In other cases, execute the kill process in the MySQL server to kill a connection, and the MySQL server restarts.</font></font></li>
+                </ul>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">At this point the MySQL connection in the PHP program is invalid. </font><font style="vertical-align: inherit;">If mysql_query is still executed, a "MySQL server has gone away" error will be reported. </font><font style="vertical-align: inherit;">If the program does not process it, it will directly encounter a fatal error and exit. </font><font style="vertical-align: inherit;">So the PHP program needs to be disconnected.</font></font></p>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Many people have proposed a mysql_ping scheme, each time mysql_query performs connection detection or timing connection detection. </font><font style="vertical-align: inherit;">This program is not the best. </font><font style="vertical-align: inherit;">Because</font></font></p>
+                <ul>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mysql_ping needs to actively detect connections, which brings extra consumption</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Regular execution of mysql_ping does not solve the problem. For example, after the mysql_ping test has been executed, the connection is closed.</font></font></li>
+                </ul>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The best solution is to make a disconnection reconnection. </font><font style="vertical-align: inherit;">Its principle is:</font></font></p>
+                <ol>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mysql_query detects the return value after execution</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If mysql_query returns a failure, the detection error code is found as 2006/2013 (these 2 errors indicate a connection failure), and then execute mysql_connect again.</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After executing mysql_connect, re-execute mysql_query, this will succeed, because the connection has been re-established</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If mysql_query returns successfully, then the connection is valid, this is a normal call</font></font></li>
+                </ol>
+                <blockquote>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        See </font></font><a href="https://github.com/swoole/framework/blob/master/libs/Swoole/Database/MySQL.php"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the code in swoole_framework</font></font></a>
+                    </p>
+                </blockquote>
+                <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL asynchronous</font></font></h2>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL asynchronous refers to driving MySQL connection events so that non-blocking IO is programmed. </font><font style="vertical-align: inherit;">Database operations do not block processes, and the corresponding logic is executed when MySQL-Server returns results.</font></font></p>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">There are a few points to note:</font></font></p>
+                <ul>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Asynchronous MySQL does not save time in SQL execution</font></font></li>
+                    <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A MySQL connection can only execute 1 SQL at a time. If asynchronous MySQL exists concurrently, multiple MySQL connections must be created.</font></font></li>
+                </ul>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Asynchronous MySQL does not improve performance in asynchronous callbacks. </font><font style="vertical-align: inherit;">The biggest advantage of asynchronous is that it can be high concurrency. If you have 10,000 requests concurrently, you need to establish 10,000 MySQL connections, which will put tremendous pressure on MySQL-Server.</font></font></p>
+                <blockquote>
+                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        MySQL allocates resources based on the number of connections. A connection needs to open a thread. </font><font style="vertical-align: inherit;">1000 connections then need to maintain 1000 threads. </font><font style="vertical-align: inherit;">After the number of threads increases, switching between threads will take up a lot of CPU resources. </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                        MySQL short connections will not cause this problem, because the short connections are released after they are used. </font><font style="vertical-align: inherit;">Does not occupy the connection resources of MySQL-Server
+                    </font></font></p>
+                </blockquote>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Although the application layer code uses asynchronous callbacks to avoid its own blocking, the real bottleneck is actually the database server. </font><font style="vertical-align: inherit;">Asynchronous MySQL also introduces additional programming complexity, so asynchronous MySQL is not recommended unless it is a special scenario requirement.</font></font></p>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If the program insists on using asynchronous, it must be in the form of an asynchronous MySQL+ connection pool. </font><font style="vertical-align: inherit;">After the specified maximum MySQL connection, the SQL request should be queued instead of creating a new connection, avoiding a large number of concurrent requests causing the MySQL server to crash.</font></font></p>
+                <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL connection pool</font></font></h2>
+                <p>连接池是可以有效降低MySQL-Server负载的。原理是
+                    连接池使用一个共享资源的模式，如并发100个请求，实际上并不是每个请求的所有时间都在执行SQL查询。这样100个请求，共享20个MySQL连接就可以满足需求了。当一个请求操作完数据库后，开始进入模板渲染等流程，这时就会释放数据库连接给其他的请求使用。</p>
+                <p>连接池仅在超大型应用中才有价值。普通的应用采用MySQL长连接方案，每个php-fpm创建一个MySQL连接，每台机器开启100个php-fpm进程。如果有10台机器，每台机器并发的请求为100。实际上只需要创建1000个MySQL连接就能满足需求，数据库的压力并不大。即使有100台机器，硬件配置好的存储服务器依然可以承受。</p>
+                <p>达到数百或者数千台应用服务器时，MySQL服务器就需要维持十万级的连接。这时数据库的压力就会非常大了。连接池技术就可以派上用场了，可以大大降低数据库连接数。</p>
+                <blockquote>
+                    <p>
+                        基于swoole的AsyncTask模块实现的连接池是完美方案，编程简单，没有数据同步和锁的问题。甚至可以多个服务共享连接池。缺点是1,
+                        灵活性不如多线程连接池，无法动态增减连接。2, 有一次进程间通信的开销。<br>
+                        node.js/ngx_lua等在多进程的模式下，无法开发出真正的连接池，除非也像swoole_task这样来实现
+                    </p>
+                </blockquote>
+            </article>
+            
+        </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+    
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
