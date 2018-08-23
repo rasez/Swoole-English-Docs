@@ -16,7 +16,512 @@
 		</script>
 	</head>
 
-	<body>
+	<body><script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="nav-side-menu">
+    <div class="brand">Brand Logo</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li data-toggle="collapse" data-target="#Advanced" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Advanced <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Advanced">
+                <li><a href="advanced\100_available.htm">100_available</a></li>
+                <li><a href="advanced\achieve.htm">achieve</a></li>
+                <li><a href="advanced\c_use_swoole.htm">c_use_swoole</a></li>
+                <li><a href="advanced\data_structures\index.htm">data_structures\index</a></li>
+                <li><a href="advanced\data_structures\queue.htm">data_structures\queue</a></li>
+                <li><a href="advanced\how_to_select_ sync_async.htm">how_to_select_ sync_async</a></li>
+                <li><a href="advanced\index.htm">index</a></li>
+                <li><a href="advanced\jemalloc.htm">jemalloc</a></li>
+                <li><a href="advanced\manager.htm">manager</a></li>
+                <li><a href="advanced\mysql_connection_pool.htm">mysql_connection_pool</a></li>
+                <li><a href="advanced\php-fpm_apache_use_swoole.htm">php-fpm_apache_use_swoole</a></li>
+                <li><a href="advanced\reactor.htm">reactor</a></li>
+                <li><a href="advanced\relationship.htm">relationship</a></li>
+                <li><a href="advanced\sync_function_in_php.htm">sync_function_in_php</a></li>
+                <li><a href="advanced\Task_Finish.htm">Task_Finish</a></li>
+                <li><a href="advanced\tcmalloc.htm">tcmalloc</a></li>
+                <li><a href="advanced\tcp_udp_pressure_test.htm">tcp_udp_pressure_test</a></li>
+                <li><a href="advanced\Worker.htm">Worker</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#AsyncIO" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> AsyncIO <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="AsyncIO">
+                <li><a href="AsyncIO\async_http_websocket\addfile.htm">async_http_websocket\addfile</a></li>
+                <li><a href="AsyncIO\async_http_websocket\get.htm">async_http_websocket\get</a></li>
+                <li><a href="AsyncIO\async_http_websocket\index.htm">async_http_websocket\index</a></li>
+                <li><a href="AsyncIO\async_http_websocket\post.htm">async_http_websocket\post</a></li>
+                <li><a href="AsyncIO\async_http_websocket\setCookies.htm">async_http_websocket\setCookies</a></li>
+                <li><a href="AsyncIO\async_http_websocket\setData.htm">async_http_websocket\setData</a></li>
+                <li><a href="AsyncIO\async_http_websocket\setHeaders.htm">async_http_websocket\setHeaders</a></li>
+                <li><a href="AsyncIO\async_http_websocket\setMethod.htm">async_http_websocket\setMethod</a></li>
+                <li><a href="AsyncIO\async_http_websocket\upgrade.htm">async_http_websocket\upgrade</a></li>
+                <li><a href="AsyncIO\async_mysql\close.htm">async_mysql\close</a></li>
+                <li><a href="AsyncIO\async_mysql\connect.htm">async_mysql\connect</a></li>
+                <li><a href="AsyncIO\async_mysql\construct.htm">async_mysql\construct</a></li>
+                <li><a href="AsyncIO\async_mysql\index.htm">async_mysql\index</a></li>
+                <li><a href="AsyncIO\async_mysql\on.htm">async_mysql\on</a></li>
+                <li><a href="AsyncIO\async_mysql\query.htm">async_mysql\query</a></li>
+                <li><a href="AsyncIO\async_mysql\swoole_get_mysqli_sock.htm">async_mysql\swoole_get_mysqli_sock</a></li>
+                <li><a href="AsyncIO\async_mysql\swoole_mysql_query.htm">async_mysql\swoole_mysql_query</a></li>
+                <li><a href="AsyncIO\async_redis\call.htm">async_redis\call</a></li>
+                <li><a href="AsyncIO\async_redis\close.htm">async_redis\close</a></li>
+                <li><a href="AsyncIO\async_redis\connect.htm">async_redis\connect</a></li>
+                <li><a href="AsyncIO\async_redis\index.htm">async_redis\index</a></li>
+                <li><a href="AsyncIO\async_redis\on.htm">async_redis\on</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\index.htm">Asyn_millisecond_timer\index</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\swoole_timer_add.htm">Asyn_millisecond_timer\swoole_timer_add</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\swoole_timer_after.htm">Asyn_millisecond_timer\swoole_timer_after</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\swoole_timer_clear.htm">Asyn_millisecond_timer\swoole_timer_clear</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\swoole_timer_del.htm">Asyn_millisecond_timer\swoole_timer_del</a></li>
+                <li><a href="AsyncIO\Asyn_millisecond_timer\swoole_timer_tick.htm">Asyn_millisecond_timer\swoole_timer_tick</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\index.htm">Asyn_system_IO\index</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\swoole_async_dns_lookup.htm">Asyn_system_IO\swoole_async_dns_lookup</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\swoole_async_read.htm">Asyn_system_IO\swoole_async_read</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\swoole_async_readfile.htm">Asyn_system_IO\swoole_async_readfile</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\swoole_async_write.htm">Asyn_system_IO\swoole_async_write</a></li>
+                <li><a href="AsyncIO\Asyn_system_IO\swoole_async_writefile.htm">Asyn_system_IO\swoole_async_writefile</a></li>
+                <li><a href="AsyncIO\EventLoop\index.htm">EventLoop\index</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_add.htm">EventLoop\swoole_event_add</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_del.htm">EventLoop\swoole_event_del</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_exit.htm">EventLoop\swoole_event_exit</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_set.htm">EventLoop\swoole_event_set</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_wait.htm">EventLoop\swoole_event_wait</a></li>
+                <li><a href="AsyncIO\EventLoop\swoole_event_write.htm">EventLoop\swoole_event_write</a></li>
+                <li><a href="AsyncIO\index.htm">index</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#framework" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> framework <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="framework">
+                <li><a href="framework\development_guide\controller.htm">development_guide\controller</a></li>
+                <li><a href="framework\development_guide\database.htm">development_guide\database</a></li>
+                <li><a href="framework\development_guide\database_insert.htm">development_guide\database_insert</a></li>
+                <li><a href="framework\development_guide\file_upload.htm">development_guide\file_upload</a></li>
+                <li><a href="framework\development_guide\index.htm">development_guide\index</a></li>
+                <li><a href="framework\development_guide\install-swoole.htm">development_guide\install-swoole</a></li>
+                <li><a href="framework\development_guide\model\all.htm">development_guide\model\all</a></li>
+                <li><a href="framework\development_guide\model\count.htm">development_guide\model\count</a></li>
+                <li><a href="framework\development_guide\model\del.htm">development_guide\model\del</a></li>
+                <li><a href="framework\development_guide\model\dels.htm">development_guide\model\dels</a></li>
+                <li><a href="framework\development_guide\model\exists.htm">development_guide\model\exists</a></li>
+                <li><a href="framework\development_guide\model\get.htm">development_guide\model\get</a></li>
+                <li><a href="framework\development_guide\model\gets.htm">development_guide\model\gets</a></li>
+                <li><a href="framework\development_guide\model\index.htm">development_guide\model\index</a></li>
+                <li><a href="framework\development_guide\model\model.htm">development_guide\model\model</a></li>
+                <li><a href="framework\development_guide\model\put.htm">development_guide\model\put</a></li>
+                <li><a href="framework\development_guide\model\set.htm">development_guide\model\set</a></li>
+                <li><a href="framework\development_guide\model\sets.htm">development_guide\model\sets</a></li>
+                <li><a href="framework\development_guide\model\table.htm">development_guide\model\table</a></li>
+                <li><a href="framework\development_guide\namespace.htm">development_guide\namespace</a></li>
+                <li><a href="framework\development_guide\orm.htm">development_guide\orm</a></li>
+                <li><a href="framework\development_guide\redis.htm">development_guide\redis</a></li>
+                <li><a href="framework\development_guide\socket\apache+swoole.htm">development_guide\socket\apache+swoole</a></li>
+                <li><a href="framework\development_guide\socket\index.htm">development_guide\socket\index</a></li>
+                <li><a href="framework\development_guide\socket\nginx_swoole.htm">development_guide\socket\nginx_swoole</a></li>
+                <li><a href="framework\development_guide\socket\tcp-server.htm">development_guide\socket\tcp-server</a></li>
+                <li><a href="framework\development_guide\socket\web-server.htm">development_guide\socket\web-server</a></li>
+                <li><a href="framework\development_guide\socket\websocket.htm">development_guide\socket\websocket</a></li>
+                <li><a href="framework\example\index.htm">example\index</a></li>
+                <li><a href="framework\example\server\app_server.htm">example\server\app_server</a></li>
+                <li><a href="framework\example\server\comet_server.htm">example\server\comet_server</a></li>
+                <li><a href="framework\example\server\config.htm">example\server\config</a></li>
+                <li><a href="framework\example\server\http_server.htm">example\server\http_server</a></li>
+                <li><a href="framework\example\server\index.htm">example\server\index</a></li>
+                <li><a href="framework\example\server\soa_server.htm">example\server\soa_server</a></li>
+                <li><a href="framework\example\server\websocket_server.htm">example\server\websocket_server</a></li>
+                <li><a href="framework\index.htm">index</a></li>
+                <li><a href="framework\specification\dir.htm">specification\dir</a></li>
+                <li><a href="framework\specification\index.htm">specification\index</a></li>
+                <li><a href="framework\specification\router.htm">specification\router</a></li>
+                <li><a href="framework\specification\url.htm">specification\url</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#History" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> History <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="History">
+                <li><a href="History\index.htm">index</a></li>
+                <li><a href="History\v1-5.htm">v1-5</a></li>
+                <li><a href="History\v1-6.htm">v1-6</a></li>
+                <li><a href="History\v1-7-10.htm">v1-7-10</a></li>
+                <li><a href="History\v1-7-11.htm">v1-7-11</a></li>
+                <li><a href="History\v1-7-12.htm">v1-7-12</a></li>
+                <li><a href="History\v1-7-13.htm">v1-7-13</a></li>
+                <li><a href="History\v1-7-14.htm">v1-7-14</a></li>
+                <li><a href="History\v1-7-15.htm">v1-7-15</a></li>
+                <li><a href="History\v1-7-16.htm">v1-7-16</a></li>
+                <li><a href="History\v1-7-17.htm">v1-7-17</a></li>
+                <li><a href="History\v1-7-18.htm">v1-7-18</a></li>
+                <li><a href="History\v1-7-19.htm">v1-7-19</a></li>
+                <li><a href="History\v1-7-20.htm">v1-7-20</a></li>
+                <li><a href="History\v1-7-21.htm">v1-7-21</a></li>
+                <li><a href="History\v1-7-22.htm">v1-7-22</a></li>
+                <li><a href="History\v1-7-5.htm">v1-7-5</a></li>
+                <li><a href="History\v1-7-6.htm">v1-7-6</a></li>
+                <li><a href="History\v1-7-7.htm">v1-7-7</a></li>
+                <li><a href="History\v1-7-8.htm">v1-7-8</a></li>
+                <li><a href="History\v1-7-9.htm">v1-7-9</a></li>
+                <li><a href="History\v1-7.htm">v1-7</a></li>
+                <li><a href="History\v1-8-0.htm">v1-8-0</a></li>
+                <li><a href="History\v1-8-1.htm">v1-8-1</a></li>
+                <li><a href="History\v1-8-2.htm">v1-8-2</a></li>
+                <li><a href="History\v1-8-3.htm">v1-8-3</a></li>
+                <li><a href="History\v1-8-4.htm">v1-8-4</a></li>
+                <li><a href="History\v1-8-5.htm">v1-8-5</a></li>
+                <li><a href="History\v1-8-6.htm">v1-8-6</a></li>
+                <li><a href="History\v1-8-7.htm">v1-8-7</a></li>
+                <li><a href="History\v1-8-8.htm">v1-8-8</a></li>
+                <li><a href="History\v1-8-9.htm">v1-8-9</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#HttpServer" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> HttpServer <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="HttpServer">
+                <li><a href="HttpServer\FAQs\1.htm">FAQs\1</a></li>
+                <li><a href="HttpServer\FAQs\2.htm">FAQs\2</a></li>
+                <li><a href="HttpServer\FAQs\3.htm">FAQs\3</a></li>
+                <li><a href="HttpServer\FAQs\index.htm">FAQs\index</a></li>
+                <li><a href="HttpServer\index.htm">index</a></li>
+                <li><a href="HttpServer\setting\http_parse_post.htm">setting\http_parse_post</a></li>
+                <li><a href="HttpServer\setting\index.htm">setting\index</a></li>
+                <li><a href="HttpServer\setting\upload_tmp_dir.htm">setting\upload_tmp_dir</a></li>
+                <li><a href="HttpServer\swoole_http_request\cookie.htm">swoole_http_request\cookie</a></li>
+                <li><a href="HttpServer\swoole_http_request\files.htm">swoole_http_request\files</a></li>
+                <li><a href="HttpServer\swoole_http_request\get.htm">swoole_http_request\get</a></li>
+                <li><a href="HttpServer\swoole_http_request\header.htm">swoole_http_request\header</a></li>
+                <li><a href="HttpServer\swoole_http_request\index.htm">swoole_http_request\index</a></li>
+                <li><a href="HttpServer\swoole_http_request\post.htm">swoole_http_request\post</a></li>
+                <li><a href="HttpServer\swoole_http_request\rawContent.htm">swoole_http_request\rawContent</a></li>
+                <li><a href="HttpServer\swoole_http_request\server.htm">swoole_http_request\server</a></li>
+                <li><a href="HttpServer\swoole_http_response\cookie.htm">swoole_http_response\cookie</a></li>
+                <li><a href="HttpServer\swoole_http_response\end.htm">swoole_http_response\end</a></li>
+                <li><a href="HttpServer\swoole_http_response\gzip.htm">swoole_http_response\gzip</a></li>
+                <li><a href="HttpServer\swoole_http_response\header.htm">swoole_http_response\header</a></li>
+                <li><a href="HttpServer\swoole_http_response\index.htm">swoole_http_response\index</a></li>
+                <li><a href="HttpServer\swoole_http_response\sendfile.htm">swoole_http_response\sendfile</a></li>
+                <li><a href="HttpServer\swoole_http_response\status.htm">swoole_http_response\status</a></li>
+                <li><a href="HttpServer\swoole_http_response\write.htm">swoole_http_response\write</a></li>
+                <li><a href="HttpServer\swoole_http_server\index.htm">swoole_http_server\index</a></li>
+                <li><a href="HttpServer\swoole_http_server\on.htm">swoole_http_server\on</a></li>
+                <li><a href="HttpServer\swoole_http_server\setGlobal.htm">swoole_http_server\setGlobal</a></li>
+                <li><a href="HttpServer\swoole_http_server\start.htm">swoole_http_server\start</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#Memory" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Memory <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Memory">
+                <li><a href="Memory\Atomic\add.htm">Atomic\add</a></li>
+                <li><a href="Memory\Atomic\cmpset.htm">Atomic\cmpset</a></li>
+                <li><a href="Memory\Atomic\construct.htm">Atomic\construct</a></li>
+                <li><a href="Memory\Atomic\get.htm">Atomic\get</a></li>
+                <li><a href="Memory\Atomic\index.htm">Atomic\index</a></li>
+                <li><a href="Memory\Atomic\set.htm">Atomic\set</a></li>
+                <li><a href="Memory\Atomic\sub.htm">Atomic\sub</a></li>
+                <li><a href="Memory\Buffer\append.htm">Buffer\append</a></li>
+                <li><a href="Memory\Buffer\clear.htm">Buffer\clear</a></li>
+                <li><a href="Memory\Buffer\construct.htm">Buffer\construct</a></li>
+                <li><a href="Memory\Buffer\expand.htm">Buffer\expand</a></li>
+                <li><a href="Memory\Buffer\index.htm">Buffer\index</a></li>
+                <li><a href="Memory\Buffer\read.htm">Buffer\read</a></li>
+                <li><a href="Memory\Buffer\substr.htm">Buffer\substr</a></li>
+                <li><a href="Memory\Buffer\write.htm">Buffer\write</a></li>
+                <li><a href="Memory\Channel\construct.htm">Channel\construct</a></li>
+                <li><a href="Memory\Channel\index.htm">Channel\index</a></li>
+                <li><a href="Memory\Channel\pop.htm">Channel\pop</a></li>
+                <li><a href="Memory\Channel\push.htm">Channel\push</a></li>
+                <li><a href="Memory\Channel\stats.htm">Channel\stats</a></li>
+                <li><a href="Memory\index.htm">index</a></li>
+                <li><a href="Memory\Lock\construct.htm">Lock\construct</a></li>
+                <li><a href="Memory\Lock\index.htm">Lock\index</a></li>
+                <li><a href="Memory\Lock\lock.htm">Lock\lock</a></li>
+                <li><a href="Memory\Lock\lock_read.htm">Lock\lock_read</a></li>
+                <li><a href="Memory\Lock\trylock.htm">Lock\trylock</a></li>
+                <li><a href="Memory\Lock\trylock_read.htm">Lock\trylock_read</a></li>
+                <li><a href="Memory\Lock\unlock.htm">Lock\unlock</a></li>
+                <li><a href="Memory\mmap\index.htm">mmap\index</a></li>
+                <li><a href="Memory\mmap\open.htm">mmap\open</a></li>
+                <li><a href="Memory\Table\column.htm">Table\column</a></li>
+                <li><a href="Memory\Table\constants.htm">Table\constants</a></li>
+                <li><a href="Memory\Table\construct.htm">Table\construct</a></li>
+                <li><a href="Memory\Table\create.htm">Table\create</a></li>
+                <li><a href="Memory\Table\decr.htm">Table\decr</a></li>
+                <li><a href="Memory\Table\del.htm">Table\del</a></li>
+                <li><a href="Memory\Table\exist.htm">Table\exist</a></li>
+                <li><a href="Memory\Table\get.htm">Table\get</a></li>
+                <li><a href="Memory\Table\incr.htm">Table\incr</a></li>
+                <li><a href="Memory\Table\index.htm">Table\index</a></li>
+                <li><a href="Memory\Table\lock.htm">Table\lock</a></li>
+                <li><a href="Memory\Table\set.htm">Table\set</a></li>
+                <li><a href="Memory\Table\unlock.htm">Table\unlock</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#other" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> other <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="other">
+                <li><a href="other\compile_php_extensions_tools.htm">compile_php_extensions_tools</a></li>
+                <li><a href="other\function\index.htm">function\index</a></li>
+                <li><a href="other\function\swoole_clear_dns_cache.htm">function\swoole_clear_dns_cache</a></li>
+                <li><a href="other\function\swoole_errno.htm">function\swoole_errno</a></li>
+                <li><a href="other\function\swoole_get_local_ip.htm">function\swoole_get_local_ip</a></li>
+                <li><a href="other\function\swoole_set_process_name.htm">function\swoole_set_process_name</a></li>
+                <li><a href="other\function\swoole_strerror.htm">function\swoole_strerror</a></li>
+                <li><a href="other\function\swoole_version.htm">function\swoole_version</a></li>
+                <li><a href="other\gdb.htm">gdb</a></li>
+                <li><a href="other\index.htm">index</a></li>
+                <li><a href="other\join_swoole.htm">join_swoole</a></li>
+                <li><a href="other\linux_errno.htm">linux_errno</a></li>
+                <li><a href="other\linux_signal_list.htm">linux_signal_list</a></li>
+                <li><a href="other\strace.htm">strace</a></li>
+                <li><a href="other\swoole_home.htm">swoole_home</a></li>
+                <li><a href="other\tcpdump.htm">tcpdump</a></li>
+                <li><a href="other\tcp_connection_status.htm">tcp_connection_status</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#Process" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Process <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="Process">
+                <li><a href="Process\functions\alarm.htm">functions\alarm</a></li>
+                <li><a href="Process\functions\close.htm">functions\close</a></li>
+                <li><a href="Process\functions\construct.htm">functions\construct</a></li>
+                <li><a href="Process\functions\daemon.htm">functions\daemon</a></li>
+                <li><a href="Process\functions\exec.htm">functions\exec</a></li>
+                <li><a href="Process\functions\exit.htm">functions\exit</a></li>
+                <li><a href="Process\functions\freeQueue.htm">functions\freeQueue</a></li>
+                <li><a href="Process\functions\index.htm">functions\index</a></li>
+                <li><a href="Process\functions\kill.htm">functions\kill</a></li>
+                <li><a href="Process\functions\name.htm">functions\name</a></li>
+                <li><a href="Process\functions\pop.htm">functions\pop</a></li>
+                <li><a href="Process\functions\push.htm">functions\push</a></li>
+                <li><a href="Process\functions\read.htm">functions\read</a></li>
+                <li><a href="Process\functions\setaffinity.htm">functions\setaffinity</a></li>
+                <li><a href="Process\functions\signal.htm">functions\signal</a></li>
+                <li><a href="Process\functions\start.htm">functions\start</a></li>
+                <li><a href="Process\functions\statQueue.htm">functions\statQueue</a></li>
+                <li><a href="Process\functions\useQueue.htm">functions\useQueue</a></li>
+                <li><a href="Process\functions\wait.htm">functions\wait</a></li>
+                <li><a href="Process\functions\write.htm">functions\write</a></li>
+                <li><a href="Process\index.htm">index</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#rumen" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> rumen <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="rumen">
+                <li><a href="rumen\bianyi\canshu.htm">bianyi\canshu</a></li>
+                <li><a href="rumen\bianyi\changjian_cuowu.htm">bianyi\changjian_cuowu</a></li>
+                <li><a href="rumen\bianyi\index.htm">bianyi\index</a></li>
+                <li><a href="rumen\changjian_wenti\01.htm">changjian_wenti\01</a></li>
+                <li><a href="rumen\changjian_wenti\02.htm">changjian_wenti\02</a></li>
+                <li><a href="rumen\changjian_wenti\03.htm">changjian_wenti\03</a></li>
+                <li><a href="rumen\changjian_wenti\04.htm">changjian_wenti\04</a></li>
+                <li><a href="rumen\changjian_wenti\05.htm">changjian_wenti\05</a></li>
+                <li><a href="rumen\changjian_wenti\06.htm">changjian_wenti\06</a></li>
+                <li><a href="rumen\changjian_wenti\07.htm">changjian_wenti\07</a></li>
+                <li><a href="rumen\changjian_wenti\08.htm">changjian_wenti\08</a></li>
+                <li><a href="rumen\changjian_wenti\09.htm">changjian_wenti\09</a></li>
+                <li><a href="rumen\changjian_wenti\10.htm">changjian_wenti\10</a></li>
+                <li><a href="rumen\changjian_wenti\11.htm">changjian_wenti\11</a></li>
+                <li><a href="rumen\changjian_wenti\12.htm">changjian_wenti\12</a></li>
+                <li><a href="rumen\changjian_wenti\13.htm">changjian_wenti\13</a></li>
+                <li><a href="rumen\changjian_wenti\index.htm">changjian_wenti\index</a></li>
+                <li><a href="rumen\developers.htm">developers</a></li>
+                <li><a href="rumen\huanjing.htm">huanjing</a></li>
+                <li><a href="rumen\index.htm">index</a></li>
+                <li><a href="rumen\luxian.htm">luxian</a></li>
+                <li><a href="rumen\needknow\exit.htm">needknow\exit</a></li>
+                <li><a href="rumen\needknow\index.htm">needknow\index</a></li>
+                <li><a href="rumen\needknow\sleep.htm">needknow\sleep</a></li>
+                <li><a href="rumen\needknow\while.htm">needknow\while</a></li>
+                <li><a href="rumen\neihe_canshu.htm">neihe_canshu</a></li>
+                <li><a href="rumen\open_source\framework.htm">open_source\framework</a></li>
+                <li><a href="rumen\open_source\index.htm">open_source\index</a></li>
+                <li><a href="rumen\open_source\tool.htm">open_source\tool</a></li>
+                <li><a href="rumen\php_ini.htm">php_ini</a></li>
+                <li><a href="rumen\running\async_tcp.htm">running\async_tcp</a></li>
+                <li><a href="rumen\running\http_server.htm">running\http_server</a></li>
+                <li><a href="rumen\running\index.htm">running\index</a></li>
+                <li><a href="rumen\running\protocol.htm">running\protocol</a></li>
+                <li><a href="rumen\running\task.htm">running\task</a></li>
+                <li><a href="rumen\running\tcp_client.htm">running\tcp_client</a></li>
+                <li><a href="rumen\running\tcp_server.htm">running\tcp_server</a></li>
+                <li><a href="rumen\running\tick.htm">running\tick</a></li>
+                <li><a href="rumen\running\udp_server.htm">running\udp_server</a></li>
+                <li><a href="rumen\running\websocket_server.htm">running\websocket_server</a></li>
+                <li><a href="rumen\tijiao_bug.htm">tijiao_bug</a></li>
+                <li><a href="rumen\version\1.8.10.htm">version\1.8.10</a></li>
+                <li><a href="rumen\version\2.0.1-Alpha.htm">version\2.0.1-Alpha</a></li>
+                <li><a href="rumen\version\index.htm">version\index</a></li>
+                <li><a href="rumen\version\v1-8-11.htm">version\v1-8-11</a></li>
+                <li><a href="rumen\version\v1-8-12.htm">version\v1-8-12</a></li>
+                <li><a href="rumen\version\v1-8-13.htm">version\v1-8-13</a></li>
+                <li><a href="rumen\version\v1-9-0.htm">version\v1-9-0</a></li>
+                <li><a href="rumen\version\v1-9-1.htm">version\v1-9-1</a></li>
+                <li><a href="rumen\version\v1-9-2.htm">version\v1-9-2</a></li>
+                <li><a href="rumen\xintexing\01.htm">xintexing\01</a></li>
+                <li><a href="rumen\xintexing\02.htm">xintexing\02</a></li>
+                <li><a href="rumen\xintexing\03.htm">xintexing\03</a></li>
+                <li><a href="rumen\xintexing\04.htm">xintexing\04</a></li>
+                <li><a href="rumen\xintexing\05.htm">xintexing\05</a></li>
+                <li><a href="rumen\xintexing\06.htm">xintexing\06</a></li>
+                <li><a href="rumen\xintexing\07.htm">xintexing\07</a></li>
+                <li><a href="rumen\xintexing\08.htm">xintexing\08</a></li>
+                <li><a href="rumen\xintexing\09.htm">xintexing\09</a></li>
+                <li><a href="rumen\xintexing\index.htm">xintexing\index</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Advanced <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="service">
+                <li><a href="server\advanced_feature\1.htm">advanced_feature\1</a></li>
+                <li><a href="server\advanced_feature\10.htm">advanced_feature\10</a></li>
+                <li><a href="server\advanced_feature\11.htm">advanced_feature\11</a></li>
+                <li><a href="server\advanced_feature\2.htm">advanced_feature\2</a></li>
+                <li><a href="server\advanced_feature\3.htm">advanced_feature\3</a></li>
+                <li><a href="server\advanced_feature\4.htm">advanced_feature\4</a></li>
+                <li><a href="server\advanced_feature\5.htm">advanced_feature\5</a></li>
+                <li><a href="server\advanced_feature\6.htm">advanced_feature\6</a></li>
+                <li><a href="server\advanced_feature\7.htm">advanced_feature\7</a></li>
+                <li><a href="server\advanced_feature\8.htm">advanced_feature\8</a></li>
+                <li><a href="server\advanced_feature\9.htm">advanced_feature\9</a></li>
+                <li><a href="server\advanced_feature\index.htm">advanced_feature\index</a></li>
+                <li><a href="server\attribute\connections.htm">attribute\connections</a></li>
+                <li><a href="server\attribute\index.htm">attribute\index</a></li>
+                <li><a href="server\attribute\manager_pid.htm">attribute\manager_pid</a></li>
+                <li><a href="server\attribute\master_pid.htm">attribute\master_pid</a></li>
+                <li><a href="server\attribute\setting.htm">attribute\setting</a></li>
+                <li><a href="server\attribute\taskworker.htm">attribute\taskworker</a></li>
+                <li><a href="server\attribute\worker_id.htm">attribute\worker_id</a></li>
+                <li><a href="server\attribute\worker_pid.htm">attribute\worker_pid</a></li>
+                <li><a href="server\callback_function\index.htm">callback_function\index</a></li>
+                <li><a href="server\callback_function\onClose.htm">callback_function\onClose</a></li>
+                <li><a href="server\callback_function\onConnect.htm">callback_function\onConnect</a></li>
+                <li><a href="server\callback_function\onFinish.htm">callback_function\onFinish</a></li>
+                <li><a href="server\callback_function\onManagerStart.htm">callback_function\onManagerStart</a></li>
+                <li><a href="server\callback_function\onManagerStop.htm">callback_function\onManagerStop</a></li>
+                <li><a href="server\callback_function\onPacket.htm">callback_function\onPacket</a></li>
+                <li><a href="server\callback_function\onPipeMessage.htm">callback_function\onPipeMessage</a></li>
+                <li><a href="server\callback_function\onReceive.htm">callback_function\onReceive</a></li>
+                <li><a href="server\callback_function\onShutdown.htm">callback_function\onShutdown</a></li>
+                <li><a href="server\callback_function\onStart.htm">callback_function\onStart</a></li>
+                <li><a href="server\callback_function\onTask.htm">callback_function\onTask</a></li>
+                <li><a href="server\callback_function\onTimer.htm">callback_function\onTimer</a></li>
+                <li><a href="server\callback_function\onWorkerError.htm">callback_function\onWorkerError</a></li>
+                <li><a href="server\callback_function\onWorkerStart.htm">callback_function\onWorkerStart</a></li>
+                <li><a href="server\callback_function\onWorkerStop.htm">callback_function\onWorkerStop</a></li>
+                <li><a href="server\config_options\backlog.htm">config_options\backlog</a></li>
+                <li><a href="server\config_options\buffer_output_size.htm">config_options\buffer_output_size</a></li>
+                <li><a href="server\config_options\chroot.htm">config_options\chroot</a></li>
+                <li><a href="server\config_options\cpu_affinity_ignore.htm">config_options\cpu_affinity_ignore</a></li>
+                <li><a href="server\config_options\daemonize.htm">config_options\daemonize</a></li>
+                <li><a href="server\config_options\discard_timeout_request.htm">config_options\discard_timeout_request</a></li>
+                <li><a href="server\config_options\dispatch_mode.htm">config_options\dispatch_mode</a></li>
+                <li><a href="server\config_options\enable_delay_receive.htm">config_options\enable_delay_receive</a></li>
+                <li><a href="server\config_options\enable_reuse_port.htm">config_options\enable_reuse_port</a></li>
+                <li><a href="server\config_options\enable_unsafe_event.htm">config_options\enable_unsafe_event</a></li>
+                <li><a href="server\config_options\group.htm">config_options\group</a></li>
+                <li><a href="server\config_options\heartbeat_check_interval.htm">config_options\heartbeat_check_interval</a></li>
+                <li><a href="server\config_options\heartbeat_idle_time.htm">config_options\heartbeat_idle_time</a></li>
+                <li><a href="server\config_options\index.htm">config_options\index</a></li>
+                <li><a href="server\config_options\log_file.htm">config_options\log_file</a></li>
+                <li><a href="server\config_options\log_level.htm">config_options\log_level</a></li>
+                <li><a href="server\config_options\max_conn.htm">config_options\max_conn</a></li>
+                <li><a href="server\config_options\max_request.htm">config_options\max_request</a></li>
+                <li><a href="server\config_options\message_queue_key.htm">config_options\message_queue_key</a></li>
+                <li><a href="server\config_options\open_cpu_affinity.htm">config_options\open_cpu_affinity</a></li>
+                <li><a href="server\config_options\open_eof_check.htm">config_options\open_eof_check</a></li>
+                <li><a href="server\config_options\open_eof_split.htm">config_options\open_eof_split</a></li>
+                <li><a href="server\config_options\open_length_check.htm">config_options\open_length_check</a></li>
+                <li><a href="server\config_options\open_tcp_nodelay.htm">config_options\open_tcp_nodelay</a></li>
+                <li><a href="server\config_options\package_eof.htm">config_options\package_eof</a></li>
+                <li><a href="server\config_options\package_length_type.htm">config_options\package_length_type</a></li>
+                <li><a href="server\config_options\package_max_length.htm">config_options\package_max_length</a></li>
+                <li><a href="server\config_options\pipe_buffer_size.htm">config_options\pipe_buffer_size</a></li>
+                <li><a href="server\config_options\reactor_num.htm">config_options\reactor_num</a></li>
+                <li><a href="server\config_options\socket_buffer_size.htm">config_options\socket_buffer_size</a></li>
+                <li><a href="server\config_options\ssl_cert_file.htm">config_options\ssl_cert_file</a></li>
+                <li><a href="server\config_options\ssl_ciphers.htm">config_options\ssl_ciphers</a></li>
+                <li><a href="server\config_options\ssl_method.htm">config_options\ssl_method</a></li>
+                <li><a href="server\config_options\task_ipc_mode.htm">config_options\task_ipc_mode</a></li>
+                <li><a href="server\config_options\task_max_request.htm">config_options\task_max_request</a></li>
+                <li><a href="server\config_options\task_tmpdir.htm">config_options\task_tmpdir</a></li>
+                <li><a href="server\config_options\task_worker_num.htm">config_options\task_worker_num</a></li>
+                <li><a href="server\config_options\tcp_defer_accept.htm">config_options\tcp_defer_accept</a></li>
+                <li><a href="server\config_options\user.htm">config_options\user</a></li>
+                <li><a href="server\config_options\worker_num.htm">config_options\worker_num</a></li>
+                <li><a href="server\constants.htm">constants</a></li>
+                <li><a href="server\FAQs\1.htm">FAQs\1</a></li>
+                <li><a href="server\FAQs\2.htm">FAQs\2</a></li>
+                <li><a href="server\FAQs\3.htm">FAQs\3</a></li>
+                <li><a href="server\FAQs\4.htm">FAQs\4</a></li>
+                <li><a href="server\FAQs\5.htm">FAQs\5</a></li>
+                <li><a href="server\FAQs\6.htm">FAQs\6</a></li>
+                <li><a href="server\FAQs\7.htm">FAQs\7</a></li>
+                <li><a href="server\FAQs\index.htm">FAQs\index</a></li>
+                <li><a href="server\functions\addListener.htm">functions\addListener</a></li>
+                <li><a href="server\functions\addProcess.htm">functions\addProcess</a></li>
+                <li><a href="server\functions\after.htm">functions\after</a></li>
+                <li><a href="server\functions\bind.htm">functions\bind</a></li>
+                <li><a href="server\functions\clearTimer.htm">functions\clearTimer</a></li>
+                <li><a href="server\functions\close.htm">functions\close</a></li>
+                <li><a href="server\functions\connection_info.htm">functions\connection_info</a></li>
+                <li><a href="server\functions\connection_list.htm">functions\connection_list</a></li>
+                <li><a href="server\functions\construct.htm">functions\construct</a></li>
+                <li><a href="server\functions\defer.htm">functions\defer</a></li>
+                <li><a href="server\functions\exist.htm">functions\exist</a></li>
+                <li><a href="server\functions\finish.htm">functions\finish</a></li>
+                <li><a href="server\functions\getLastError.htm">functions\getLastError</a></li>
+                <li><a href="server\functions\heartbeat.htm">functions\heartbeat</a></li>
+                <li><a href="server\functions\index.htm">functions\index</a></li>
+                <li><a href="server\functions\listen.htm">functions\listen</a></li>
+                <li><a href="server\functions\on.htm">functions\on</a></li>
+                <li><a href="server\functions\pause.htm">functions\pause</a></li>
+                <li><a href="server\functions\reload.htm">functions\reload</a></li>
+                <li><a href="server\functions\resume.htm">functions\resume</a></li>
+                <li><a href="server\functions\send.htm">functions\send</a></li>
+                <li><a href="server\functions\sendfile.htm">functions\sendfile</a></li>
+                <li><a href="server\functions\sendMessage.htm">functions\sendMessage</a></li>
+                <li><a href="server\functions\sendto.htm">functions\sendto</a></li>
+                <li><a href="server\functions\sendwait.htm">functions\sendwait</a></li>
+                <li><a href="server\functions\set.htm">functions\set</a></li>
+                <li><a href="server\functions\shutdown.htm">functions\shutdown</a></li>
+                <li><a href="server\functions\start.htm">functions\start</a></li>
+                <li><a href="server\functions\stats.htm">functions\stats</a></li>
+                <li><a href="server\functions\stop.htm">functions\stop</a></li>
+                <li><a href="server\functions\swoole_get_mysqli_sock.htm">functions\swoole_get_mysqli_sock</a></li>
+                <li><a href="server\functions\task.htm">functions\task</a></li>
+                <li><a href="server\functions\taskwait.htm">functions\taskwait</a></li>
+                <li><a href="server\functions\taskWaitMulti.htm">functions\taskWaitMulti</a></li>
+                <li><a href="server\functions\tick.htm">functions\tick</a></li>
+                <li><a href="server\index.htm">index</a></li>
+                <li><a href="server\lister_port\callback.htm">lister_port\callback</a></li>
+                <li><a href="server\lister_port\index.htm">lister_port\index</a></li>
+                <li><a href="server\lister_port\params.htm">lister_port\params</a></li>
+                <li><a href="server\php_ini.htm">php_ini</a></li>
+                <li><a href="server\stress_test\1.htm">stress_test\1</a></li>
+                <li><a href="server\stress_test\2.htm">stress_test\2</a></li>
+                <li><a href="server\stress_test\index.htm">stress_test\index</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#WebSocket" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> WebSocket <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="WebSocket">
+                <li><a href="WebSocket\callback_function\index.htm">callback_function\index</a></li>
+                <li><a href="WebSocket\callback_function\onHandShake.htm">callback_function\onHandShake</a></li>
+                <li><a href="WebSocket\callback_function\onMessage.htm">callback_function\onMessage</a></li>
+                <li><a href="WebSocket\callback_function\onOpen.htm">callback_function\onOpen</a></li>
+                <li><a href="WebSocket\constants.htm">constants</a></li>
+                <li><a href="WebSocket\FAQs\1.htm">FAQs\1</a></li>
+                <li><a href="WebSocket\FAQs\index.htm">FAQs\index</a></li>
+                <li><a href="WebSocket\functions\index.htm">functions\index</a></li>
+                <li><a href="WebSocket\functions\push.htm">functions\push</a></li>
+                <li><a href="WebSocket\index.htm">index</a></li>
+            </ul>
+    </div>
+</div>
+
 		<div class="wiki_content">
 			<article>
 				<h1>onManagerStop</h1>
